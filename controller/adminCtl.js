@@ -14,4 +14,4 @@ const adminform = (req, res) => {
   }
 };
 
-module.exports = { dashboard,adminform };
+module.exports = { dashboard, adminform };
