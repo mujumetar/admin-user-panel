@@ -1,0 +1,178 @@
+
+          <%- include("header") %>
+
+
+<!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-12 d-flex no-block align-items-center">
+                        <h4 class="page-title">Form Basic</h4>
+                        <div class="ml-auto text-right">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <form class="form-horizontal" action="/insertAdmin" method="post" enctype="multipart/form-data">
+                                <div class="card-body">
+                                    <h4 class="card-title">Personal Info</h4>
+                                    <div class="form-group row">
+                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label"> Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="name" id="fname" placeholder=" Name Here">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row">
+                                        <label for="email1" class="col-sm-3 text-right control-label col-form-label">Email</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control" name="email" id="email1" placeholder="Email Address here">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Password</label>
+                                        <div class="col-sm-9">
+                                            <input type="password" class="form-control" name="password" id="lname" placeholder="Password Here">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Contact No</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="phone" id="cono1" placeholder="Contact No Here">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Message</label>
+                                        <div class="col-sm-9">
+                                            <textarea class="form-control" name="message"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="cono1" class="col-sm-3 text-right control-label col-form-label">City</label>
+                                        <div class="col-sm-9">
+                                        <select class="select2 form-control custom-select" name="city" style="width: 100%; height:36px;">
+                                             <!-- <% ["--select--", "Alabama", "Arkansas", "Illinois", "Iowa", "Kansas", "Kentucky", "Louisiana", "Minnesota", "Mississippi", "Missouri", "Oklahoma", "South", "Texas", "Tennessee", "Wisconsin"].map((ele) => {%> 
+
+                                            <option value="<%= ele %>"><%= ele %></option>
+
+                                          <%  }) %>         -->
+                                        </select>
+                                        </div>
+                                    </div>
+                                   
+                                 <div class="form-group row">
+                                    <label class="col-sm-3 text-right control-label col-form-label">Gender</label>
+                                    <div class="col-md-9">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" class="custom-control-input" id="customControlValidation1" value="Male" name="gender" required>
+                                            <label class="custom-control-label" for="customControlValidation1">Male</label>
+                                        </div>
+                                         <div class="custom-control custom-radio">
+                                            <input type="radio" class="custom-control-input" id="customControlValidation2" value="female" name="gender" required>
+                                            <label class="custom-control-label" for="customControlValidation2">female</label>
+                                        </div>
+                                         <div class="custom-control custom-radio">
+                                            <input type="radio" class="custom-control-input" id="customControlValidation3" value="Others" name="gender" required>
+                                            <label class="custom-control-label" for="customControlValidation3">Others</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 text-right control-label col-form-label">Hobbies:</label>
+                                    <div class="col-md-9">
+                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                            <input type="checkbox" class="custom-control-input" name="hobbies" value="Coding" id="customControlAutosizing1">
+                                            <label class="custom-control-label" for="customControlAutosizing1">Coding</label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                            <input type="checkbox" class="custom-control-input" name="hobbies" value="Presentation" id="customControlAutosizing2">
+                                            <label class="custom-control-label" for="customControlAutosizing2">Presentation</label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                            <input type="checkbox" class="custom-control-input" name="hobbies" value="Movies" id="customControlAutosizing3">
+                                            <label class="custom-control-label" for="customControlAutosizing3">Movies</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 text-right control-label col-form-label">File Upload</label>
+                                    <div class="col-md-9">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="avatar" id="validatedCustomFile" required>
+                                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="border-top">
+                                    <div class="card-body">
+                                        <button  class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </form>
+                        </div>
+                    
+                      
+
+                    </div>
+                 
+                </div>
+                <!-- editor -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Quill Editor</h4>
+                                <!-- Create the editor container -->
+                                <div id="editor" style="height: 300px;">
+                                    <p>Hello World!</p>
+                                    <p>Some initial <strong>bold</strong> text</p>
+                                    <p>
+                                        <br>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+
+            <%- include("footer") %>
