@@ -1,4 +1,4 @@
-const dashboard = (req, res) => {
+module.exports.dashboard = (req, res) => {
   try {
     res.render("dashboard");
   } catch (err) {
@@ -6,7 +6,7 @@ const dashboard = (req, res) => {
   }
 };
 
-const adminform = (req, res) => {
+module.exports.adminform = (req, res) => {
   try {
     res.render("admin_form");
   } catch (err) {
@@ -14,4 +14,10 @@ const adminform = (req, res) => {
   }
 };
 
-module.exports = { dashboard, adminform };
+module.exports.view_admin = (req, res) => {
+  try {
+    res.render("view_admin");
+  } catch (err) {
+    console.log(err);
+  }
+};
