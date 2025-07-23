@@ -43,16 +43,21 @@ const adminSchema = mongoose.Schema({
   },
 });
 
-const adminpics = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, "..", imgpath))
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.fieldname + "-" + Date.now())
-  }
-})
-adminSchema.statics.uploadimage = multer({ storage: adminpics }).single("avatar")
-adminSchema.statics.adpath = imgpath
+
+
+
+
+
+// const adminpics = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, path.join(__dirname, "..", imgpath))
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, file.fieldname + "-" + Date.now())
+//   }
+// })
+// adminSchema.statics.uploadimage = multer({ storage: adminpics }).single("avatar")
+// adminSchema.statics.adpath = imgpath
 
 const adminTbl = mongoose.model("admin", adminSchema);
 module.exports = adminTbl;

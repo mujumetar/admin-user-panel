@@ -6,6 +6,7 @@ app.use(express.urlencoded());
 app.set("view engine", "ejs");
 // app.use("views", path.join(__dirname, "views"))
 const db = require("./config/db");
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 app.use("/", require("./routes/index"));
 app.use(express.static(path.join(__dirname, "/public")));
 

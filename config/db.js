@@ -1,10 +1,7 @@
 const mongoose = require("mongoose");
 
 // Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/base", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect("mongodb://localhost:27017/admin-panel",);
 
 const db = mongoose.connection;
 

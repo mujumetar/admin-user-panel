@@ -1,3 +1,6 @@
+const mongoose = require("mongoose")
+const multer = require("multer")
+
 module.exports.dashboard = (req, res) => {
   try {
     res.render("dashboard");
@@ -23,6 +26,18 @@ module.exports.view_admin = (req, res) => {
 };
 
 module.exports.insertadmin = async (req, res) => {
+  console.log("hii")
   console.log(req.body);
- 
+  console.log(req.file);
+
+  // if (req.file) {
+  //   req.body.avatar = req.file.path;
+  // }
+  // try {
+  //   let data = await adminTbl.create(req.body);
+  //   return res.redirect("/admin_form");
+  // } catch (error) {
+  //   console.log(error);
+  //   return res.redirect("404");
+  // }
 };
