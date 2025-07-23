@@ -21,3 +21,8 @@ module.exports.view_admin = (req, res) => {
     console.log(err);
   }
 };
+
+module.exports.insertadmin = async (req, res) => {
+  console.log(req.body);
+ 
+};

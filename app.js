@@ -4,7 +4,7 @@ const app = express();
 const port = 2000;
 app.use(express.urlencoded());
 app.set("view engine", "ejs");
-app.use("views",path.join(__dirname,"views"))
+// app.use("views", path.join(__dirname, "views"))
 const db = require("./config/db");
 app.use("/", require("./routes/index"));
 app.use(express.static(path.join(__dirname, "/public")));
