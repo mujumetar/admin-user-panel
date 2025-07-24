@@ -9,7 +9,7 @@ const multer = require("multer");
 
 routes.get("/", adminCtl.dashboard);
 routes.get("/admin_form", adminCtl.adminform);
-routes.get("/view_admin", adminCtl.view_admin);
+routes.get("/view_admin", adminCtl.viewAdmin);
 routes.post("/insertAdmin", admin.uploadAdminImage, adminCtl.insertadmin);
 routes.get("/searchAdminData", adminCtl.searchAdminData)
 module.exports = routes;

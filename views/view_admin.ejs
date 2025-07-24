@@ -37,7 +37,11 @@
               <h5 class="card-title mb-0">Admin Table</h5>
             </div>
             <div>
-
+              <form action="/admin/view_admin" class="px-5 my-3 d-flex">
+                <input type="text" class="form-control " placeholder="Searching..." name="searchAdmin"
+                  value="<%= search %>" id="searchAdminData" />
+                <button type="submit" class="btn btn-success text-white">Search</button>
+              </form>
             </div>
             <table class="table">
               <thead>
@@ -46,6 +50,7 @@
                   <th scope="col">Image</th>
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
+                  <th scope="col">message</th>
                   <th scope="col">City</th>
                   <th scope="col">Gender</th>
                   <th scope="col">Qualification</th>
@@ -57,8 +62,35 @@
 
                 <% adminData.map((ele,index)=>{ %>
                   <tr>
-                    <td><%= ele %></td>
-                    
+                    <td>
+                      <%= index + 1 %>
+                    </td>
+                    <td>
+                      <img src="/<%= ele.photo %>" width="50" height="50">
+                    </td>
+                    <td>
+                      <%= ele.name %>
+                    </td>
+                    <td>
+                      <%= ele.email %>
+                    </td>
+                    <td>
+                      <%= ele.message %>
+                    </td>
+                    <td>
+                      <%= ele.city %>
+                    </td>
+                    <td>
+                      <%= ele.gender %>
+                    </td>
+                    <td>
+                      <%= ele.qualification %>
+                    </td>
+
+                    <td>
+                      <%= ele.status %>
+                    </td>
+
 
                     <td colspan="9">
 
@@ -66,10 +98,17 @@
                   </tr>
 
                   <% }) %>
-                  <tr>
+                    <tr>
+                      <td colspan="9">
+                        <a href="<%= page= Number(page) - 1 %>"> <button>Prev</button></a>
 
+                        <a href="<%= page=Number(page) %>"><button>
+                            <%= page=Number(page) %>
+                          </button></a>
+                        <button>Next</button>
+                      </td>
 
-                  </tr>
+                    </tr>
 
               </tbody>
             </table>
