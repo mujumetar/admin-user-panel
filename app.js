@@ -10,6 +10,7 @@ const db = require("./config/db");
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 app.use("/", require("./routes/index"));
 app.use(express.static(path.join(__dirname, "/public")));
+app.set("views", path.join(__dirname, "views"));
 
 app.listen(port, (err) => {
   if (err) {
