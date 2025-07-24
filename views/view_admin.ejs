@@ -1,73 +1,142 @@
-<%- include("header") %>
-<!-- ============================================================== -->
-<div class="page-wrapper">
-  <div class="page-breadcrumb">
-    <div class="row">
-      <div class="col-12 d-flex no-block align-items-center">
-        <h4 class="page-title">Tables</h4>
-        <div class="ml-auto text-right">
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">
-                Library
-              </li>
-            </ol>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title m-b-0">Static Table</h5>
-          </div>
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col" class="font-weight-bold">No</th>
-                <th scope="col" class="font-weight-bold">Name</th>
-                <th scope="col" class="font-weight-bold">Email</th>
-                <th scope="col" class="font-weight-bold">Password</th>
-                <th scope="col" class="font-weight-bold">Phone</th>
-                <th scope="col" class="font-weight-bold">Gender</th>
-                <th scope="col" class="font-weight-bold">City</th>
-                <th scope="col" class="font-weight-bold">Hobbies</th>
-                <th scope="col" class="font-weight-bold">Avatar</th>
-                <th scope="col" class="font-weight-bold">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td scope="col">+1</td>
-                <td scope="col">name</td>
-                <td scope="col">email</td>
-                <td scope="col">password%></td>
-                <td scope="col">phone</td>
-                <td scope="col">gender</td>
-                <td scope="col">card</td>
-                <td scope="col">hobbies.join(",")%></td>
-                <td scope="col">
-                  <img src=" ele.avatar " width="100px" />
-                </td>
-                <td scope="col">
-                  <a class="mr-4" href="/edit_admin?userId= ele.id ">
-                    <i class="fas fa-pencil-alt font-20"></i>
-                  </a>
-                  <a class="mr-4">
-                    <i class="fas fa-trash-alt font-20"></i>
-                  </a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
+<%- include("header")%>
 
-  <%- include("footer") %>
-</div>
+
+
+
+  <div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+      <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+          <h4 class="page-title">Admin Details</h4>
+          <div class="ms-auto text-end">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Library
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+      <!-- ============================================================== -->
+      <!-- Start Page Content -->
+      <!-- ============================================================== -->
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title mb-0">Admin Table</h5>
+            </div>
+            <div>
+              
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Index</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">City</th>
+                  <th scope="col">Gender</th>
+                  <th scope="col">Qualification</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% adminData.map((ele,index)=>{ %>
+                  <tr>
+
+                    <th scope="row">
+                      <%= index+1 %>
+                    </th>
+                    <td><img src="/<%= ele.photo %>" width="50" height="50"></td>
+                    <td>
+                      <%= ele.name %>
+                    </td>
+                    <td>
+                      <%= ele.email %>
+                    </td>
+                    <td>
+                      <%= ele.city %>
+                    </td>
+                    <td>
+                      <%= ele.gender %>
+                    </td>
+                    <td>
+                      <%= ele.qualification.join(", ") %></td>
+                      <td><div class=" btn text-white btn-success">
+                        <%= ele.status %>
+          </div>
+          </td>
+          <td>
+            <a href="/admin/delete/<%= ele.id%>" class="btn btn-danger">Delete</a>
+            <a href="/admin/update/<%= ele.id%>" class="btn btn-warning">Update</a>
+          </td>
+
+          </tr>
+          <% }) %>
+
+            <tr>
+
+              <td colspan="9">
+                <% for(var i=0; i< totalPage ;i++){ %>
+                  <a href="?page=<%=i%>&searchAdmin=<%= search %>" class="btn btn-outline-dark">
+                    <%= i +1%>
+                  </a>
+                  <% }%>
+              </td>
+            </tr>
+
+            <tr>
+              <!-- <td colspan="9">
+          <button>Prev</button>
+          <button><%= Number(page)+ 1 %></button>
+          <button>Next</button>
+      </td> -->
+            </tr>
+
+            </tbody>
+            </table>
+        </div>
+
+
+
+      </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End PAge Content -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Right sidebar -->
+    <!-- ============================================================== -->
+    <!-- .right-sidebar -->
+    <!-- ============================================================== -->
+    <!-- End Right sidebar -->
+    <!-- ============================================================== -->
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Container fluid  -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+
+
+
+
+  <%- include("footer")%>
+
+    <!-- comment  -->
