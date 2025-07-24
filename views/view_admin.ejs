@@ -1,8 +1,4 @@
-<%- include("header")%>
-
-
-
-
+<%- include("header") %>
   <div class="page-wrapper">
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
@@ -41,7 +37,7 @@
               <h5 class="card-title mb-0">Admin Table</h5>
             </div>
             <div>
-              
+
             </div>
             <table class="table">
               <thead>
@@ -58,85 +54,39 @@
                 </tr>
               </thead>
               <tbody>
+
                 <% adminData.map((ele,index)=>{ %>
                   <tr>
+                    <td>data</td>
+                    <td>data</td>
+                    <td>data</td>
+                    <td>data</td>
+                    <td>data</td>
+                    <td>data</td>
+                    <td>data</td>
+                    <td>data</td>
 
-                    <th scope="row">
-                      <%= index+1 %>
-                    </th>
-                    <td><img src="/<%= ele.photo %>" width="50" height="50"></td>
-                    <td>
-                      <%= ele.name %>
+                    <td colspan="9">
+
                     </td>
-                    <td>
-                      <%= ele.email %>
-                    </td>
-                    <td>
-                      <%= ele.city %>
-                    </td>
-                    <td>
-                      <%= ele.gender %>
-                    </td>
-                    <td>
-                      <%= ele.qualification.join(", ") %></td>
-                      <td><div class=" btn text-white btn-success">
-                        <%= ele.status %>
-          </div>
-          </td>
-          <td>
-            <a href="/admin/delete/<%= ele.id%>" class="btn btn-danger">Delete</a>
-            <a href="/admin/update/<%= ele.id%>" class="btn btn-warning">Update</a>
-          </td>
+                  </tr>
 
-          </tr>
-          <% }) %>
+                  <tr>
+                    <% }) %>
 
-            <tr>
 
-              <td colspan="9">
-                <% for(var i=0; i< totalPage ;i++){ %>
-                  <a href="?page=<%=i%>&searchAdmin=<%= search %>" class="btn btn-outline-dark">
-                    <%= i +1%>
-                  </a>
-                  <% }%>
-              </td>
-            </tr>
+                  </tr>
 
-            <tr>
-              <!-- <td colspan="9">
-          <button>Prev</button>
-          <button><%= Number(page)+ 1 %></button>
-          <button>Next</button>
-      </td> -->
-            </tr>
-
-            </tbody>
+              </tbody>
             </table>
+          </div>
+
+
+
         </div>
-
-
-
       </div>
+
     </div>
-    <!-- ============================================================== -->
-    <!-- End PAge Content -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Right sidebar -->
-    <!-- ============================================================== -->
-    <!-- .right-sidebar -->
-    <!-- ============================================================== -->
-    <!-- End Right sidebar -->
-    <!-- ============================================================== -->
-  </div>
-  <!-- ============================================================== -->
-  <!-- End Container fluid  -->
-  <!-- ============================================================== -->
-  <!-- ============================================================== -->
 
 
-
-
-  <%- include("footer")%>
-
-    <!-- comment  -->
+    <%- include("footer")%>

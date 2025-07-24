@@ -3,7 +3,7 @@ const multer = require("multer")
 const moment = require("moment")
 
 const path = require("path")
-// const imagePath = require("/uploads")
+
 
 const adminSchema = new mongoose.Schema({
     name:{

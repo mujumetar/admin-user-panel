@@ -64,45 +64,12 @@ module.exports.insertadmin = async (req, res) => {
   }
 };
 
-module.exports.searchAdminData = async (req, res) => {
-  try {
-    let search = "";
-    if (req.query) {
-      search = req.query.searchAdmin;
-    }
-console.log("com")
-    let page = 0;
-    let perPage = 2;
-
-    let searchData = await admin
-      .find({
-        $or: [
-          { name: { $regex: search, $options: "i" } },
-          { email: { $regex: search, $options: "i" } },
-          { city: { $regex: search, $options: "i" } },
-          { gender: { $regex: search, $options: "i" } },
-          { qualification: { $regex: search, $options: "i" } },
-        ],
-      })
-      .skip(page * perPage)
-      .limit(perPage);
-
-    // // console.log(searchData);
-    return res.render("view_admin", {
-      adminData: searchData,
-    });
-  } catch (error) {
-    console.log(error);
-    return res.redirect("/admin/view_admin");
-  }
-};
-
 module.exports.viewAdmin = async (req, res) => {
   try {
-    let page = 0;
-    if (req.query.page) {
-      page = req.query.page;
-    }
+    // let page = 0;
+    // if (req.query.page) {
+    //   page = req.query.page;
+    // }
 
     // let search = "";
 
@@ -110,8 +77,9 @@ module.exports.viewAdmin = async (req, res) => {
     //   search = req.query.searchAdmin;
     // }
 
-    let perPage = 2;
-    let adminData = await admin.find({
+    // let perPage = 2;
+    let adminData = await admin
+      .find({
         $or: [
           { name: { $regex: search, $options: "i" } },
           { email: { $regex: search, $options: "i" } },
@@ -123,29 +91,63 @@ module.exports.viewAdmin = async (req, res) => {
       .skip(page * perPage)
       .limit(perPage);
 
-    let countAllAdminRecord = await admin
-      .find({
-        $or: [
-          { name: { $regex: search, $options: "i" } },
-          { email: { $regex: search, $options: "i" } },
-          { city: { $regex: search, $options: "i" } },
-          { gender: { $regex: search, $options: "i" } },
-          { qualification: { $regex: search, $options: "i" } },
-        ],
-      })
-      .countDocuments();
+    // let countAllAdminRecord = await admin
+    //   .find({
+    //     $or: [
+    //       { name: { $regex: search, $options: "i" } },
+    //       { email: { $regex: search, $options: "i" } },
+    //       { city: { $regex: search, $options: "i" } },
+    //       { gender: { $regex: search, $options: "i" } },
+    //       { qualification: { $regex: search, $options: "i" } },
+    //     ],
+    //   })
+    //   .countDocuments();
 
-    let totalPage = Math.ceil(countAllAdminRecord / perPage);
+    // let totalPage = Math.ceil(countAllAdminRecord / perPage);
 
     return res.render("view_admin", {
       adminData,
-      totalPage,
-      search,
-      page,
+      // totalPage,
+      // search,
+      // page,
+    });
+
+    // console.log(searchAdmin)
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};
+
+module.exports.searchAdminData = async (req, res) => {
+  try {
+    console.log("searchadmin-execute")
+    // let search = "";
+    // if (req.query) {
+    //   search = req.query.searchAdmin;
+    // }
+    // console.log("com");
+    // let page = 0;
+    // let perPage = 2;
+
+    // let searchData = await admin
+    //   .find({
+    //     $or: [
+    //       { name: { $regex: search, $options: "i" } },
+    //       { email: { $regex: search, $options: "i" } },
+    //       { city: { $regex: search, $options: "i" } },
+    //       { gender: { $regex: search, $options: "i" } },
+    //       { qualification: { $regex: search, $options: "i" } },
+    //     ],
+    //   })
+    //   .skip(page * perPage)
+    //   .limit(perPage);
+
+    return res.render("view_admin", {
+      adminData: searchData,
     });
   } catch (error) {
     console.log(error);
-
-    return false;
+    return res.redirect("/admin/view_admin");
   }
 };
