@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-mongoose.connect("mongodb://localhost:27017/blogProject")
+mongoose.connect("mongodb://localhost:27017/admin-panel")
 
 const db = mongoose.connection;
 

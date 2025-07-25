@@ -227,3 +227,91 @@ module.exports.searchAdminData = async (req, res, next) => {
     return next(err);
   }
 };
+
+
+
+module.exports.deleteAdmin = async (req,res)=>{
+    try {
+     
+     const id = req.params.id
+     console.log(id)
+
+        const deleteAdmin = await admin.findByIdAndDelete(id)
+        console.log("data deleted successfully")
+       
+        return res.redirect("/admin/view_admin")
+
+    } catch (error) {
+            console.log(error)
+
+        return false
+    }
+}
+
+
+module.exports.updateAdmin = async (req,res)=>{
+      
+
+    try {
+        
+        const id = req.params.id
+        const update = await admin.findById(id)
+
+        return res.render("updateAdmin",{
+            update
+        })
+
+    } catch (error) {
+        console.log(error)
+
+        return false
+    }
+}
+
+
+module.exports.updataAdminData = async (req,res)=>{
+
+    let {id,name,fname,lname,email,password,message,city,gender,qualification} = req.body
+    
+    try {
+        
+        const admins = admin.findById(id)
+
+        if(!admins){
+            console.log("User not found")
+            return res.redirect("/admin/view_admin")
+        }
+
+        const updatedData = {
+            name: fname + " " + lname,
+            email,
+            password,
+            message,
+            city,
+            gender,
+            qualification
+        }
+
+        if(req.file){
+            if(admins.photo && fs.existsSync(admins.photo)){
+                fs.unlinkSync(admins.photo)
+            }
+            updatedData.photo = req.file.path
+            
+        }
+
+        const updateAdmin = await admin.findByIdAndUpdate(id, updatedData)
+
+        console.log("data updated successfully")
+        return res.redirect("/admin/view_admin")
+        }
+
+
+
+        catch (error) {
+           console.log(error)
+           return false
+       }
+    }
+
+// searching and pagination

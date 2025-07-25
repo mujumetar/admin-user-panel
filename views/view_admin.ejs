@@ -90,11 +90,13 @@
                     <td>
                       <%= ele.status %>
                     </td>
-
-
-                    <td colspan="9">
-
+                    <td>
+                      <a href="/admin/delete/<%= ele.id%>" class="btn btn-danger">🗑️</a>
+                      <a href="/admin/update/<%= ele.id%>" class="btn btn-warning">✏️</a>
                     </td>
+
+
+                   
                   </tr>
 
                   <% }) %>
