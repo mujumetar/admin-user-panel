@@ -1,9 +1,10 @@
-const express = require("express");
-const routes = express.Router();
+const express = require("express")
+
+const routes = express.Router()
 
 
+routes.use("/admin",require("./admin"))
+routes.use("/",require("./user"))
+routes.use("/category",require("./category"))
 
-routes.use("/", require("./user-routes"));
-routes.use("/admin", require("./admin-routes"));
-
-module.exports = routes;
+module.exports = routes

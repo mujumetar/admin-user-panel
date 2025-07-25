@@ -1,23 +1,17 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 
-// Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/admin-panel",);
+mongoose.connect("mongodb://localhost:27017/blogProject")
 
 const db = mongoose.connection;
 
-// Handle successful connection
-db.on("connected", () => {
-  console.log("✅ MongoDB connected");
-});
+db.on("connected",(err)=>{
+    if(err){
+        console.log(err)
+        return false
+    }
 
-// Handle connection errors
-db.on("error", (err) => {
-  console.error("❌ MongoDB connection error:", err);
-});
+    console.log("db id connected")
+})
 
-// Optional: Handle disconnected
-db.on("disconnected", () => {
-  console.log("⚠️ MongoDB disconnected");
-});
 
-module.exports = db;
+module.exports = db
