@@ -1,12 +1,15 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* background-color: black; */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* background-color: black; */
 }
 
 .img-div {
-    background: url(/img/monthly-stats.png);
-    background-size: cover;
+  background: url(/img/monthly-stats.png);
+  background-size: cover;
   background: #FFFFFF;
-background: linear-gradient(180deg,rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 0.27) 50%, rgba(0, 0, 0, 1) 100%);
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 0.27) 50%, rgba(0, 0, 0, 1) 100%)
+}
