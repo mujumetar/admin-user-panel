@@ -5,11 +5,14 @@
   /* background-color: black; */
 }
 
+/* body {
+  background-color: black;
+} */
+
 .img-div {
   background: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.indiatvnews.com%2Fnews%2Findia%2Fbreaking-news-live-updates-delhi-rains-waterlogging-weather-imd-alert-gurugram-noida-pfi-covid19-congress-president-neet-pg-counselling-mohan-bhagwat-810985&psig=AOvVaw1qTK3ztBuJG2kVtELxm6o-&ust=1753789940618000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCMj2-uW-344DFQAAAAAdAAAAABAE");
   background-size: cover;
-
   border-radius: 10px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 0.27) 50%, rgba(0, 0, 0, 1) 100%)
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 0.27) 50%, rgba(0, 0, 80, 1) 100%)
 }
