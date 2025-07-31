@@ -20,4 +20,5 @@ routes.get("/delete/:id", adminCtl.deleteAdmin);
 routes.get("/update/:id", adminCtl.updateAdmin);
 routes.get("/adminProfile", adminCtl.adminProfile)
 routes.get("/searchAdminData", adminCtl.searchAdminData);
+
 module.exports = routes;

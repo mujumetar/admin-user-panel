@@ -41,7 +41,6 @@ passport.deserializeUser(async function (id, done) {
   if (!currUser) {
     return done(null, false);
   }
-
   return done(null, currUser);
 });
 
