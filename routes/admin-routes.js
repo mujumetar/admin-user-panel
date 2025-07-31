@@ -4,14 +4,20 @@ const adminCtl = require("../controller/adminCtl");
 const admin = require("../models/adminTbl");
 const db = require("../config/db");
 const multer = require("multer");
+const passport = require("passport");
 
-
-
-routes.get("/", adminCtl.dashboard);
+routes.get("/", adminCtl.authLogin);
+routes.get("/dashboard", passport.isAuth, adminCtl.dashboard);
+routes.post(
+  "/loginAdmin",
+  passport.authenticate("local", { failureRedirect: "/admin" }),
+  adminCtl.loginAdmin
+);
 routes.get("/admin_form", adminCtl.adminform);
 routes.get("/view_admin", adminCtl.viewAdmin);
 routes.post("/insertAdmin", admin.uploadAdminImage, adminCtl.insertadmin);
-routes.get("/delete/:id", adminCtl.deleteAdmin)
-routes.get("/update/:id", adminCtl.updateAdmin)
-routes.get("/searchAdminData", adminCtl.searchAdminData)
+routes.get("/delete/:id", adminCtl.deleteAdmin);
+routes.get("/update/:id", adminCtl.updateAdmin);
+routes.get("/adminProfile", adminCtl.adminProfile)
+routes.get("/searchAdminData", adminCtl.searchAdminData);
 module.exports = routes;
