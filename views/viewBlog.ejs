@@ -1,0 +1,128 @@
+<%- include("header")%>
+
+
+
+
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-12 d-flex no-block align-items-center">
+
+                    <div class="ms-auto text-end">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Library
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">All Blogs </h5>
+                        </div>
+                        <div class="px-3 py-2">
+                            <form action="/admin/blog/viewBlog" class="d-flex px-3">
+                                <input type="text" name="searchBlog" class="form-control"
+                                    placeholder="Search By Name..." value="<%= search %>">
+                                <button type="submit" class="btn btn-success text-white ">Search</button>
+                            </form>
+                        </div>
+                        <table class="table center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Index</th>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Blog Name</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% data.map((ele,index)=>{ %>
+                                    <tr>
+
+                                        <th scope="row">
+                                            <%= index+1 %>
+                                        </th>
+                                        <td><img src="/<%= ele.blogImage %>" width="70" height="70"></td>
+                                        <td>
+                                            <%= ele.blogName %>
+                                        </td>
+                                        <td>
+                                            <%= ele.category %>
+                                        </td>
+                                        <td>
+                                            <a href="/admin/blog/deleteData/<%= ele.id %>"
+                                                class="btn btn-danger">Delete</a>
+                                            <a href="/admin/blog/updateData/<%= ele.id %>"
+                                                class="btn btn-warning">Edit</a>
+                                        </td>
+
+                                    </tr>
+                                    <% }) %>
+
+                                        <tr>
+                                            <td>
+                                                <% for(var i=0;i <totalPage ; i++){ %>
+
+                                                    <a href="/admin/blog/viewBlog?page=<%= i %>&searchBlog=<%= search %>"
+                                                        class="btn btn-outline-secondary">
+                                                        <%= i +1 %>
+                                                    </a>
+
+                                                    <% }%>
+                                            </td>
+                                        </tr>
+                                        <!-- comment -->
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End PAge Content -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Right sidebar -->
+            <!-- ============================================================== -->
+            <!-- .right-sidebar -->
+            <!-- ============================================================== -->
+            <!-- End Right sidebar -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+
+
+
+
+        <%- include("footer")%>
+
+            <!-- comment  -->

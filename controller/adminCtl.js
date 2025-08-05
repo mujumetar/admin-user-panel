@@ -55,7 +55,6 @@ module.exports.insertadmin = async (req, res) => {
     });
 
     console.log("data added successfully");
-
     return res.redirect("/admin/view_admin");
   } catch (error) {
     console.log(error);
