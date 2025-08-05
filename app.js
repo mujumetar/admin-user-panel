@@ -29,17 +29,14 @@ app.use(
   })
 );
 
-// ✅ Initialize passport AFTER session middleware
+
 app.use(passport.initialize());
 app.use(passport.session());
 
-// ✅ Your custom passport middleware (if needed)
 app.use(passport.userAuth);
 
-// ✅ Routes (AFTER session and passport setup)
 app.use("/", require("./routes/index"));
 
-// Start server
 app.listen(port, (err) => {
   if (err) {
     console.log("server is not connected...!");
