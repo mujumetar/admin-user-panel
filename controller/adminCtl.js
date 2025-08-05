@@ -308,7 +308,6 @@ module.exports.updataAdminData = async (req, res) => {
   }
 };
 
-
 module.exports.authLogin = (req, res) => {
   try {
     return res.render("authLogin");
@@ -319,7 +318,7 @@ module.exports.authLogin = (req, res) => {
 };
 
 module.exports.loginAdmin = (req, res) => {
-  console.log(req.user)
+  console.log(req.user);
   try {
     if (req.user) {
       console.log("login successfully");
@@ -339,5 +338,99 @@ module.exports.adminProfile = (req, res) => {
   } catch (error) {
     console.log(error);
     return false;
+  }
+};
+
+module.exports.changePassword = (req, res) => {
+  try {
+    return res.render("changePassword");
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};
+
+module.exports.changePass = async (req, res) => {
+  const { oldPass, newPass, confPass } = req.body;
+  try {
+    if (!oldPass && !newPass && !confPass) {
+      console.log("All fields are required");
+      return res.redirect("/admin/changePassword");
+    }
+
+    if (newPass !== confPass) {
+      console.log("New password and confirm password do not match");
+      return res.redirect("/admin/changePassword");
+    }
+
+    const admins = await admin.findById(req.user.id);
+
+    if (oldPass === admins.password) {
+      if (oldPass != newPass) {
+        const user = await admin.findByIdAndUpdate(admins.id, {
+          password: newPass,
+        });
+        console.log("password Changed");
+        return res.redirect("/admin/dashboard");
+      } else {
+        console.log("both password are same");
+        return res.redirect("/admin/changePassword");
+      }
+    } else {
+      console.log("both password are same");
+      return res.redirect("/admin/changePassword");
+    }
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};
+
+module.exports.forgotPassEmail = (req, res) => {
+  try {
+    return res.render("forgotPassEmail");
+  } catch (error) {
+    console.log(error);
+    return res.redirect("/admin/");
+  }
+};
+
+module.exports.forgotPassEmails = async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    const admins = await admin.findOne({ email: email });
+    if (!admins) {
+      console.log("No User Found");
+      return res.redirect("/admin/");
+    }
+    const otp = Math.round(Math.random * 10000);
+
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      auth: {
+        user: "",
+        pass: "",
+      },
+    });
+
+    const info = await transporter.sendMail({
+      from: '"Admin Pannel" <>',
+      to: email,
+      subject: "Lost Password OTP",
+      text: "OTP",
+      html: `your otp is : ${otp}`,
+    });
+
+    console.log("Message sent:", info.messageId);
+
+    if (info) {
+      console.log("otp send successfully");
+    }
+  } catch (error) {
+    console.log(error);
+    return res.redirect("/admin/");
   }
 };
