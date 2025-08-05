@@ -411,13 +411,13 @@ module.exports.forgotPassEmails = async (req, res) => {
       port: 587,
       secure: false,
       auth: {
-        user: "",
+        user: "muzammilmetar82@gmail.com",
         pass: "",
       },
     });
 
     const info = await transporter.sendMail({
-      from: '"Admin Pannel" <>',
+      from: '"Admin Pannel" <muzammilmetar82@gmail.com>',
       to: email,
       subject: "Lost Password OTP",
       text: "OTP",
