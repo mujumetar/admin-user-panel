@@ -23,8 +23,6 @@ const categorySchema = mongoose.Schema({
             type:String,
             default:moment().format('MMMM Do YYYY, h:mm:ss a')
         }
-
-
 })
 
 const categoryStorage = multer.diskStorage({

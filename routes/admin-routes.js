@@ -5,7 +5,7 @@ const admin = require("../models/adminTbl");
 const db = require("../config/db");
 const multer = require("multer");
 const passport = require("passport");
-const session = require("express-session")
+const session = require("express-session");
 
 routes.get("/", adminCtl.authLogin);
 routes.get("/dashboard", passport.isAuth, adminCtl.dashboard);
@@ -44,5 +44,5 @@ routes.get("/logout", function (req, res, next) {
 routes.get("/changePassword", passport.isAuth, adminCtl.changePassword);
 routes.get("/forgotPassEmail", adminCtl.forgotPassEmail);
 routes.post("/forgotPassEmail", adminCtl.forgotPassEmails);
-
+routes.use("/blog", passport.isAuth, require("../routes/blog"));
 module.exports = routes;
