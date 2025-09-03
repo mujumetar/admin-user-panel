@@ -2,7 +2,7 @@ const blog = require("../models/blogSchema");
 const category = require("../models/categorySchema");
 const fs = require("fs");
 module.exports.addBlog = async (req, res) => {
-  // let categories = await category.find({})
+  let categories = await category.find({})
   return res.render("addBlog");
 };
 module.exports.viewBlog = async (req, res) => {

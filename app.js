@@ -10,11 +10,10 @@ const db = require("./config/db");
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
-// Static files
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 app.use(express.static(path.join(__dirname, "/public")));
 
-// ✅ Setup session (before passport)
+
 app.use(
   session({
     name: "Admin",

@@ -1,7 +1,10 @@
 const express = require("express");
-const routes = express.Router();
-
 const userCtl = require("../controller/userCtl");
-routes.get("/", userCtl.home);
 
-module.exports = routes;
+const router = express.Router();
+
+router.get("/", userCtl.dashboard);
+
+router.get("/blogDetails/:id", userCtl.blogDetails);
+
+module.exports = router;
