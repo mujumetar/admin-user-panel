@@ -1,126 +1,146 @@
- <%- include("header")%>
-      <div class="page-wrapper">
-       
-        <div class="page-breadcrumb">
-          <div class="row">
-            <div class="col-12 d-flex no-block align-items-center">
-           
-              <div class="ms-auto text-end">
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">
-                      Library
-                    </li>
-                  </ol>
-                </nav>
-              </div>
-            </div>
+<%- include("header")%>
+
+
+
+  <!-- ============================================================== -->
+  <div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+      <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+
+          <div class="ms-auto text-end">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Library
+                </li>
+              </ol>
+            </nav>
           </div>
         </div>
-        
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="card">
-                <form class="form-horizontal" action="/admin/blog/insertBlog" method="post" enctype="multipart/form-data">
-                  <div class="card-body">
-                    <h4 class="card-title">Add Blog</h4>
+      </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+      <!-- ============================================================== -->
+      <!-- Start Page Content -->
+      <!-- ============================================================== -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <form class="form-horizontal" action="/admin/blog/insertBlog" method="post" enctype="multipart/form-data">
+              <div class="card-body">
+                <h4 class="card-title">Add Blog</h4>
 
-                               <div class="form-group row">
-                    <label class="col-md-3 mt-3">Select Category</label>
-                    <div class="col-md-9">
-                      
-                      <select
-                        class="select2 form-select shadow-none"
-                        style="width: 100%; height: 36px"
-                        name="category"
-                      >
+                <div class="form-group row">
+                  <label class="col-md-3 mt-3">Select Category</label>
+                  <div class="col-md-9">
 
-                
-                       
-
-                          <option value="xyz">xyz</option> 
+                    <select class="select2 form-select shadow-none" style="width: 100%; height: 36px" name="category">
 
 
-                 
-                 
-                      </select>
-                    </div>
+                      <option value="hii">
+                        hiii
+                      </option>
+
+
+                    </select>
                   </div>
-                    <div class="form-group row">
-                      <label
-                        for="fname"
-                      
-                        class="col-sm-3 text-end control-label col-form-label"
-                        >Blog Name</label
-                      >
-                      <div class="col-sm-9">
-                        <input
-                          type="text"
-                            name="blogName"
-                          class="form-control"
-                          id="fname"
-                          placeholder="Blog Name Here"
-                        />
-                      </div>
-                    </div>
-             
-                
-                   
-                    <div class="form-group row">
-                      <label
-                        for="cono1"
-                        class="col-sm-3 text-end control-label col-form-label"
-                        >Description</label
-                      >
-                      <div class="col-sm-9">
-                        <textarea class="form-control" name="blogDesc"></textarea>
-                      </div>
-                    </div>
-             
-                  <div class="form-group row pt-3 mt-3">
-                    <label class="col-md-3">Upload FIle</label>
-                    <div class="col-md-9">
-                      <div class="custom-file">
-                        <input
-                          type="file"
-                          name="blogImage"
-                          class="custom-file-input"
-                          id="validatedCustomFile"
-                          required
-                        />
-                        <label
-                          class="custom-file-label"
-                          for="validatedCustomFile"
-                          >Choose file...</label
-                        >
-                        <div class="invalid-feedback">
-                          Example invalid custom file feedback
-                        </div>
+                </div>
+                <div class="form-group row">
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Blog Name</label>
+                  <div class="col-sm-9">
+                    <input type="text" name="blogName" class="form-control" id="fname" placeholder="Blog Name Here" />
+                  </div>
+                </div>
+
+                <div class="form-group row pt-3 mt-3">
+                  <label class="col-md-3">Upload FIle</label>
+                  <div class="col-md-9">
+                    <div class="custom-file">
+                      <input type="file" name="blogImage" class="custom-file-input" id="validatedCustomFile" required />
+                      <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                      <div class="invalid-feedback">
+                        Example invalid custom file feedback
                       </div>
                     </div>
                   </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="cono1" class="col-sm-3 text-end control-label col-form-label">Description</label>
+                  <div class="col-sm-9">
+                    <textarea class="form-control" name="blogDesc"></textarea>
                   </div>
-                  <div class="border-top">
-                    <div class="card-body">
-                      <button type="submit" class="btn btn-primary">
-                        Submit
-                      </button>
-                    </div>
-                  </div>
-                </form>
+                </div>
+
+
               </div>
-            
-          
-            </div>
-      
+              <div class="border-top">
+                <div class="card-body">
+                  <button type="submit" class="btn btn-primary">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
+
 
         </div>
 
-    
+      </div>
+      <!-- editor -->
 
+      <!-- ============================================================== -->
+      <!-- End PAge Content -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Right sidebar -->
+      <!-- ============================================================== -->
+      <!-- .right-sidebar -->
+      <!-- ============================================================== -->
+      <!-- End Right sidebar -->
+      <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <%- include("footer")%>
 
+      <!-- Place the first <script> tag in your HTML's <head> -->
+      <script src="https://cdn.tiny.cloud/1/ofiuee28p6e6818ki6stk83ylzktd47hnpjjzwfjk7ur9kve/tinymce/8/tinymce.min.js"
+        referrerpolicy="origin" crossorigin="anonymous"></script>
 
- <%- include("footer")%>
+      <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
+      <script>
+        tinymce.init({
+          selector: 'textarea',
+          plugins: [
+            // Core editing features
+            'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+            // Your account includes a free trial of TinyMCE premium features
+            // Try the most popular premium features until Aug 24, 2025:
+            'checklist', 'mediaembed', 'casechange', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'advtemplate', 'ai', 'uploadcare', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown', 'importword', 'exportword', 'exportpdf'
+          ],
+          toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography uploadcare | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+          tinycomments_mode: 'embedded',
+          tinycomments_author: 'Author name',
+          mergetags_list: [
+            { value: 'First.Name', title: 'First Name' },
+            { value: 'Email', title: 'Email' },
+          ],
+          ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
+          uploadcare_public_key: '7d377e283e8aaa1d7a10',
+        });
+      </script>

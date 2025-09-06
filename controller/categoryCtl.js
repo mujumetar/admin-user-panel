@@ -1,5 +1,5 @@
 const category = require("../models/categorySchema")
-const fs = require("fs")    
+const fs = require("fs")
 
 
 
@@ -8,78 +8,77 @@ module.exports.viewCategory = async (req, res) => {
     try {
         let page = 0
 
-        if(req.query.page){
-            page= req.query.page
+        if (req.query.page) {
+            page = parseInt(req.query.page, 10)
         }
 
         let perPage = 2
         let search = ""
 
-        if(req.query.searchCategory){
+        if (req.query.searchCategory) {
             search = req.query.searchCategory
         }
 
-        
+
         const categoryData = await category.find({
-            $or : [
-                { categoryName : { $regex : search , $options : "i"}}
+            $or: [
+                { categoryName: { $regex: search, $options: "i" } }
             ]
-        }).sort({_id : -1}).skip(page * perPage).limit(perPage)
+        }).sort({ _id: -1 }).skip(page * perPage).limit(perPage)
 
 
         let totalCount = await category.find({
-            $or : [
-                { categoryName : { $regex : search , $options : "i"}}
+            $or: [
+                { categoryName: { $regex: search, $options: "i" } }
             ]
         }).countDocuments()
 
-        let totalPage = Math.ceil(totalCount/perPage)
+        let totalPage = Math.ceil(totalCount / perPage)
 
 
 
 
 
-        return res.render("viewCategory",{
+        return res.render("viewCategory", {
             categoryData, search, totalPage
         })
 
     } catch (error) {
         console.log(error)
-        return false
+        return res.status(500).send("Internal Server Error")
     }
 }
 
 
-module.exports.addCategory = (req, res) => {      
-    try
-    {
-        
-        return res.render("addCategory")
+module.exports.addCategory = (req, res) => {
+    try {
+        return res.render("addCategory", {
+            categories,
 
+        })
     }
-    catch(err){
+    catch (err) {
         console.log(err)
-        return false
+        return res.status(500).send("Internal Server Error")
     }
 }
 
 
-module.exports.insertCategory = async (req,res)=>{
+module.exports.insertCategory = async (req, res) => {
 
-    const {categoryName, categoryDescription} = req.body
+    const { categoryName, categoryDescription } = req.body
     const categoryImage = req.file.path
 
     try {
-        
+
         const categoryData = await category.create({
             categoryName,
             categoryDescription,
             categoryImage
         })
-        
-        console.log("Category added successfully")
 
-        return res.redirect("/category/viewAdmin")
+        console.log("Category added successfully")
+        return res.redirect("/category/addAdmin")
 
     } catch (error) {
         console.log(error)
@@ -87,8 +86,8 @@ module.exports.insertCategory = async (req,res)=>{
     }
 }
 
-module.exports.deleteCategory = async (req,res)=>{
-    
+module.exports.deleteCategory = async (req, res) => {
+
     try {
 
         const deleteCategory = await category.findByIdAndDelete(req.params.id)
@@ -102,20 +101,20 @@ module.exports.deleteCategory = async (req,res)=>{
     }
 }
 
-module.exports.editCategoryPage = async (req,res)=>{
-    const id  = req.params.id
-    
+module.exports.editCategoryPage = async (req, res) => {
+    const id = req.params.id
+
     try {
 
-      const categoryData = await category.findById(id)
+        const categoryData = await category.findById(id)
 
-      if(!categoryData){
-          return res.redirect("/category/viewAdmin")
-      }
+        if (!categoryData) {
+            return res.redirect("/category/viewAdmin")
+        }
 
-      return res.render("updateCategory",{
-        categoryData
-      })
+        return res.render("updateCategory", {
+            categoryData
+        })
 
 
     } catch (error) {
@@ -124,26 +123,25 @@ module.exports.editCategoryPage = async (req,res)=>{
     }
 }
 
+module.exports.updateCategory = async (req, res) => {
 
-module.exports.updateCategory = async (req,res)=>{
-
-    const {id,categoryName, categoryDescription} = req.body
+    const { id, categoryName, categoryDescription } = req.body
     const categoryImage = req.file
 
-    try{
+    try {
 
         const categories = await category.findById(id)
-        if(!categories){
+        if (!categories) {
             return res.redirect("/category/viewAdmin")
         }
-        const updateData ={
+        const updateData = {
             categoryName,
             categoryDescription,
-            
+
         }
 
-        if(req.file){
-            if(categories.categoryImage && fs.existsSync(categories.categoryImage)){
+        if (req.file) {
+            if (categories.categoryImage && fs.existsSync(categories.categoryImage)) {
                 fs.unlinkSync(categories.categoryImage)
             }
 
@@ -155,7 +153,7 @@ module.exports.updateCategory = async (req,res)=>{
         return res.redirect("/category/viewAdmin")
 
 
-    }catch(err){
+    } catch (err) {
         console.log(err)
         return false
     }

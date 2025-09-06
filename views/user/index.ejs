@@ -6,11 +6,11 @@
   <div class="blog-post text-dark ">
     <div class="row g-2">
         <% blog.map((ele,index)=>{  %>
-        <div class="col-lg-4 col-md-2 col-sm-12 rounded-3 shadow p-2">
+        <div class="col-lg-4 col-md-2 col-sm-12 rounded-3  p-2">
           <div class="img-div p-0 m-0">
-            <img class="img-fluid" src="<%= ele.blogImage%>" alt="">
-            <div class="">
-              <div class="content row d-flex align-content-end">
+            <img class="img-fluid shadow " src="<%= ele.blogImage%>" alt="">
+            <div class="position-relative">
+              <div class="content position-absolute top-0 row d-flex align-content-end">
                 <div class="col-4 pe-0 w-full text-start"><%= ele.createdAt%></div>
                 <div class="col-4 ps-0 text-start"><%= ele.category%></div>
                 <div class="col-12">

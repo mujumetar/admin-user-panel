@@ -65,12 +65,18 @@
     id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasScrollingLabel">
-        
+
       </h5>
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      <p>categories</p>
+      <% category.map((ele)=>{ %>
+        <a href="" class="text-decoration-none">
+          <li class="list-group-item">
+            <%=ele.categoryName%>
+          </li>
+        </a>
+        <% }) %>
     </div>
   </div>
   <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop"
@@ -97,4 +103,3 @@
       <p>Try scrolling the rest of the page to see this option in action.</p>
     </div>
   </div>
-

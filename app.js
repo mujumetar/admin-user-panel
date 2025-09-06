@@ -7,6 +7,7 @@ const localStrategy = require("./config/passLocal");
 const session = require("express-session");
 const db = require("./config/db");
 
+
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
