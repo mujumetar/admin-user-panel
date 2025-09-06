@@ -1,27 +1,31 @@
  <%- include("blogheader")%>
 
 <div class="container p-2 my-4">
-    <div class="blog-post text-white">
-      <div class="row g-2">
-        <div class="col-lg-4 col-md-2 col-sm-12 rounded-3">
-          <div class="img-div p-3">
-            <div class="pt-5">
-              <div class="content row pt-5 d-flex align-content-end">
-                <div class="col-4 pe-0 w-fit text-start">14 july 2025</div>
-                <div class="col-4 ps-0 text-start">Technology</div>
+
+  
+  <div class="blog-post text-dark ">
+    <div class="row g-2">
+        <% blog.map((ele,index)=>{  %>
+        <div class="col-lg-4 col-md-2 col-sm-12 rounded-3 shadow p-2">
+          <div class="img-div p-0 m-0">
+            <img class="img-fluid" src="<%= ele.blogImage%>" alt="">
+            <div class="">
+              <div class="content row d-flex align-content-end">
+                <div class="col-4 pe-0 w-full text-start"><%= ele.createdAt%></div>
+                <div class="col-4 ps-0 text-start"><%= ele.category%></div>
                 <div class="col-12">
                   <p class="text-primary p-0 m-0">
-                    indian market face high down...
+                  <%= ele.blogName%>
                   </p>
                 </div>
                 <div class="col-12 text-truncate">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptatum, fugiat.
+                <%= ele.blogDesc%>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <% }) %>
       </div>
     </div>
   </div>

@@ -70,5 +70,4 @@ adminSchema.statics.uploadAdminImage = multer({storage:adminStorage}).single("ph
 
 const admin = mongoose.model("admin",adminSchema)
 
-
 module.exports = admin
